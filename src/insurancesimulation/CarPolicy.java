@@ -14,6 +14,10 @@ public class CarPolicy extends Policy {
     private boolean isFullyComprehensive;
     final double BASIC_COVER = 100;
     final double FIXED_PERCENTAGE = 10;
+    final int MIN_DRIVER_AGE = 17;
+    final int MAX_DRIVER_AGE = 99;
+    final int MIN_PREMIUM_AGE = 16;
+    final int MAX_PREMIUM_AGE = 26;
     private double initialPremium = max(BASIC_COVER,FIXED_PERCENTAGE);
     
     /**
@@ -33,7 +37,7 @@ public class CarPolicy extends Policy {
        
        super(policyNumber, year);
        
-       if( insuredDriverAge < 17 || insuredDriverAge > 99)
+       if( insuredDriverAge < MIN_DRIVER_AGE || insuredDriverAge > MAX_DRIVER_AGE)
        {
             throw new IllegalPolicyException ("Can only insure people between "
                     + "the ages of 17 and 99 inclsuive.");
@@ -91,12 +95,12 @@ public class CarPolicy extends Policy {
      */
     @Override
     public double getPremium(){
-        if(isFullyComprehensive = true)
+        if(isFullyComprehensive == true)
         {
             initialPremium = initialPremium + ((initialPremium / 100) * 50);  
         }
         
-        if(driversAge>16 && driversAge<26)
+        if(driversAge>MIN_PREMIUM_AGE && driversAge<MAX_PREMIUM_AGE)
         {
             initialPremium = initialPremium + ((initialPremium / 100) * 50);
         }

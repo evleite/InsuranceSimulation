@@ -17,6 +17,9 @@ public abstract class Policy {
      */
     protected int yearOfIssue;
     
+    final int MIN_POLICY_YEAR = 1990;
+    final int MAX_POLICY_YEAR = 2013;
+    
     /**
      * Creates a new instance of Policy.
      * @param policyNumber
@@ -26,7 +29,7 @@ public abstract class Policy {
     public Policy(String policyNumber, int year)
         throws IllegalPolicyException
     {
-        if(year < 1990 || year > 2013) {
+        if(year < MIN_POLICY_YEAR || year > MAX_POLICY_YEAR) {
             throw new IllegalPolicyException(
                 "Year Of Issue " + yearOfIssue + " out of range. "
                         + "Must be in the range 1990 - 2013.");

@@ -31,6 +31,7 @@ public class PolicyList {
     /**
      * Store details of a new policy into this policyList.
      * @param newPolicy     The Policy to be stored.
+     * @throws insurancesimulation.IllegalPolicyException
      */
     public void addPolicy(Policy newPolicy) throws IllegalPolicyException
     {
